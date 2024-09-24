@@ -33,6 +33,14 @@ class Notion(commands.Cog):
         embed.set_thumbnail("https://upload.wikimedia.org/wikipedia/commons/4/45/Notion_app_logo.png")
         await interaction.send(embed=embed)
 
+    @notion.subcommand(description="Obtenir les cours disponibles")
+    async def cours(self, interaction: nc.Interaction,
+                    matiere:str = nc.SlashOption(description="La matière demandée",required=False)):
+        
+        classes = await self.notion_client.databases.query("fff109d1eb4081a6be62df2b161002c4")
+        print(classes)
+        await interaction.send("Check console.")
+
 
 def setup(bot):
     load_dotenv()
