@@ -3,6 +3,7 @@ import nextcord as nc
 from nextcord.ext import commands
 from os import getenv
 from dotenv import load_dotenv
+import json
 
 class Notion(commands.Cog):
 
@@ -38,8 +39,15 @@ class Notion(commands.Cog):
                     matiere:str = nc.SlashOption(description="La matière demandée",required=False)):
         
         classes = await self.notion_client.databases.query("fff109d1eb4081a6be62df2b161002c4")
-        print(classes)
-        await interaction.send("Check console.")
+        
+        for c in classes["results"]:
+
+            name = c["properties"]["Course Name"]["title"][0]["text"]["content"]
+            matiere = c["properties"]["Cours"]["select"]["name"]
+            intervenant = c["properties"]["Intervenant"]["select"]["name"]
+            print(f"Cours : {name}\nMatière : {matiere}\nIntervenant : {intervenant}\n")
+
+        await interaction.send("Check console.",ephemeral=True)
 
 
 def setup(bot):
