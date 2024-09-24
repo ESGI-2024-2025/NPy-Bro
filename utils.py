@@ -1,4 +1,4 @@
-from os import listdir
+import os
 
 class Utils(object):
     
@@ -13,8 +13,10 @@ class Utils(object):
             _type_: A list of cogs.
         """
         cogs = []
-        for cogsFile in listdir(cogs_directory):
-            if cogsFile.endswith(".py"):
-                cogs.append("cogs."+cogsFile[:-3])
+        
+        for root, dirs, cogFiles in os.walk(cogs_directory):
+            for cogFile in cogFiles:
+                if cogFile.endswith(".py"):
+                    cogs.append(f"{root[2:].replace("/", ".")}.{cogFile[:-3]}")
                 
         return cogs
