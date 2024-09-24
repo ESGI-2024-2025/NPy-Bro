@@ -9,3 +9,4 @@ nextcord==2.6.0
 python-dotenv==1.0.1
 typing_extensions==4.12.2
 yarl==1.12.1
+notion-client==2.2.1
