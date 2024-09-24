@@ -19,7 +19,7 @@ bot.load_extensions(cogs)
 
 def connect(bot):
     load_dotenv()
-    TOKEN = getenv("TOKEN")
+    TOKEN = getenv("TOKEN_DISCORD")
     bot.run(TOKEN)
 
 connect(bot)

@@ -23,7 +23,7 @@ class Notion(commands.Cog):
 
 def setup(bot):
     load_dotenv()
-    NOTION=getenv("NOTION")
+    NOTION = getenv("TOKEN_NOTION")
     client = notion_client.Client(auth=NOTION)
     bot.add_cog(Notion(bot,client))
 
