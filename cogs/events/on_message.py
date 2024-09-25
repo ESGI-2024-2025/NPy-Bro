@@ -8,7 +8,7 @@ class OnMessageEventsCog(commands.Cog):
     @commands.Cog.listener()
     async def on_message(self, message: nextcord.Message):
         if (message.author == self.bot.user): return
-        print(f"Message reçu : {message.content}")
+        # print(f"Message reçu : {message.content}")
 
 def setup(bot):
     bot.add_cog(OnMessageEventsCog(bot))
