@@ -17,6 +17,6 @@ class Utils(object):
         for root, dirs, cogFiles in os.walk(cogs_directory):
             for cogFile in cogFiles:
                 if cogFile.endswith(".py"):
-                    cogs.append(f"{root[2:].replace("/", ".")}.{cogFile[:-3]}")
+                    cogs.append(f"{root[2:].replace('/', '.')}.{cogFile[:-3]}")
                 
         return cogs
